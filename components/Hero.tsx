@@ -23,10 +23,13 @@ export const Hero: React.FC = () => {
       </p>
 
       {/* Primary CTA Button */}
-      <button className="group bg-[#1a1f2c] text-white px-8 py-4 rounded-full text-base font-medium flex items-center gap-2 hover:bg-black transition-all duration-300 shadow-lg hover:shadow-xl mb-4 transform hover:-translate-y-0.5 active:scale-95">
+      <a 
+        href="https://rewarduplevel.com/aff_c?offer_id=1377&aff_id=161682"
+        className="group bg-[#1a1f2c] text-white px-8 py-4 rounded-full text-base font-medium flex items-center gap-2 hover:bg-black transition-all duration-300 shadow-lg hover:shadow-xl mb-4 transform hover:-translate-y-0.5 active:scale-95"
+      >
         Start Earning
         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-      </button>
+      </a>
 
       {/* Disclaimer */}
       <p className="text-slate-400 text-xs font-medium mb-12">
