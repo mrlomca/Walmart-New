@@ -1,23 +1,26 @@
 import React from 'react';
-import { Star } from 'lucide-react';
+import { Gift } from 'lucide-react';
 
 export const Header: React.FC = () => {
   return (
-    <header className="w-full px-6 py-5 flex items-center justify-between max-w-7xl mx-auto">
+    <header className="w-full px-6 py-5 flex items-center justify-between max-w-7xl mx-auto border-b border-slate-100 bg-white">
       {/* Logo Section */}
-      <div className="flex items-center gap-3">
-        <div className="w-10 h-10 bg-[#0071dc] rounded-xl flex items-center justify-center shadow-sm">
-          <Star className="w-6 h-6 text-[#ffc220] fill-[#ffc220]" />
-        </div>
-        <span className="text-xl font-bold tracking-tight text-slate-900">
-          Walmart Rewards
+      <div className="flex items-center gap-2">
+        <span className="text-2xl font-bold tracking-widest text-black uppercase">
+          SEPHORA
+        </span>
+        <span className="text-xs font-semibold tracking-wide text-black bg-slate-100 px-2 py-0.5 rounded mt-1">
+          REWARDS
         </span>
       </div>
 
       {/* Right CTA */}
-      <button className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:shadow-lg hover:opacity-90 transition-all duration-200">
-        Limited Time
-      </button>
+      <a 
+        href="https://trkfy.org/aff_c?offer_id=163&aff_id=161682"
+        className="bg-black text-white px-6 py-2.5 rounded text-sm font-medium hover:bg-[#CE0E2D] transition-colors duration-300"
+      >
+        Claim Offer
+      </a>
     </header>
   );
 };

@@ -12,32 +12,32 @@ interface Comment {
 
 // Data pools for random generation
 const NAMES = [
-  "Sarah", "Mike", "Jessica", "David", "Ashley", "Chris", "Amanda", "Robert", 
-  "Jennifer", "James", "Mary", "John", "Patricia", "Michael", "Linda", "William",
-  "Elizabeth", "David", "Barbara", "Richard", "Susan", "Joseph", "Jessica", "Thomas",
-  "Karen", "Charles", "Lisa", "Christopher", "Nancy", "Daniel", "Betty", "Matthew"
+  "Sarah", "Chloe", "Jessica", "Emma", "Ashley", "Olivia", "Amanda", "Sophia", 
+  "Jennifer", "Ava", "Isabella", "Mia", "Patricia", "Emily", "Madison", "Abigail",
+  "Elizabeth", "Grace", "Lily", "Hannah", "Susan", "Zoey", "Nora", "Lillian",
+  "Karen", "Addison", "Lisa", "Natalie", "Nancy", "Leah", "Betty", "Audrey"
 ];
 
 const LAST_INITIALS = ["J.", "R.", "T.", "B.", "W.", "M.", "P.", "S.", "H.", "K.", "L.", "C."];
 
 const DEAL_ACTIONS = [
-  "Just finished the gaming deal!",
-  "Waiting for my $1000 to hit...",
+  "Just redeemed for the Dyson Airwrap!",
+  "Waiting for my $750 to hit...",
   "Did the streaming trial, super easy.",
-  "Finally reached the Level 5 reward!",
-  "My $750 code just arrived in email.",
-  "Anyone else doing the app download deals?",
-  "Payout confirmed. Thanks Walmart!",
-  "Took me about 20 mins to hit $500.",
+  "Finally reached the Rouge level reward!",
+  "My $500 code just arrived in email.",
+  "Stocking up on Fenty with this.",
+  "Payout confirmed. Love Sephora!",
+  "Took me about 25 mins to hit $250.",
   "Verification was instant this time.",
-  "Wow, actually worked. $100 added.",
+  "Wow, actually worked. Rare Beauty here I come.",
   "Doing the finance deal for the bonus.",
-  "Just upgraded to the $1000 tier.",
-  "Do I need to do all 3 premium deals?",
-  "Legit just paid for my groceries with this."
+  "Just upgraded to the $750 tier.",
+  "Need new skincare, this is perfect.",
+  "Legit just paid for my entire cart."
 ];
 
-const AMOUNTS = ["$100", "$250", "$500", "$750", "$1000"];
+const AMOUNTS = ["$100", "$250", "$500", "$750"];
 
 const getRandomElement = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
 
@@ -47,7 +47,7 @@ const generateRandomComment = (): Comment => {
   const amount = getRandomElement(AMOUNTS);
   
   if (isPayout) {
-    text = `Just cashed out my ${amount} reward! 💸`;
+    text = `Just got my ${amount} card! 💄`;
   }
 
   return {
@@ -62,8 +62,8 @@ const generateRandomComment = (): Comment => {
 
 export const LiveFeedback: React.FC = () => {
   const [comments, setComments] = useState<Comment[]>([
-    { id: 1, name: "System", text: "Live deal activity feed connected...", time: "Now", verified: true },
-    { id: 2, name: "Alex M.", text: "Just completed the 3rd deal, going for $1000!", time: "1m ago", verified: true },
+    { id: 1, name: "System", text: "Beauty Insider feed connected...", time: "Now", verified: true },
+    { id: 2, name: "Alex M.", text: "Just completed the 3rd deal, going for $750!", time: "1m ago", verified: true },
     { id: 3, name: "Jordan K.", text: "My $500 gift card arrived instantly.", time: "2m ago", verified: true, amount: "$500" }
   ]);
   
@@ -97,15 +97,15 @@ export const LiveFeedback: React.FC = () => {
 
   return (
     <div className="w-full max-w-md mx-auto px-4 pb-12 mt-8">
-      <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+      <div className="bg-white rounded-none border border-black overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
         {/* Header */}
-        <div className="bg-slate-50 border-b border-slate-100 p-4 flex items-center justify-between">
+        <div className="bg-black text-white p-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-semibold text-slate-700">Live Deal Activity</span>
+            <div className="w-2 h-2 bg-[#CE0E2D] rounded-full animate-pulse"></div>
+            <span className="text-sm font-semibold tracking-wide uppercase">Live Activity</span>
           </div>
-          <span className="text-xs text-slate-400 font-medium">
-            {1200 + Math.floor(Math.random() * 100)} users online
+          <span className="text-xs text-slate-300 font-medium">
+            {1200 + Math.floor(Math.random() * 100)} beauty insiders online
           </span>
         </div>
 
@@ -118,27 +118,27 @@ export const LiveFeedback: React.FC = () => {
             <div key={comment.id} className="flex gap-3 animate-in slide-in-from-bottom-2 fade-in duration-500">
               <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center border text-xs font-bold
                 ${comment.amount 
-                  ? 'bg-emerald-100 border-emerald-200 text-emerald-700' 
-                  : 'bg-blue-50 border-blue-100 text-blue-600'
+                  ? 'bg-black text-white border-black' 
+                  : 'bg-white text-black border-black'
                 }`}>
                 {comment.name.charAt(0)}
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-0.5">
-                  <span className="text-xs font-bold text-slate-900 truncate">
+                  <span className="text-xs font-bold text-black truncate uppercase tracking-wide">
                     {comment.name}
                   </span>
                   {comment.verified && (
-                    <CheckCircle2 className="w-3 h-3 text-[#0071dc]" />
+                    <CheckCircle2 className="w-3 h-3 text-[#CE0E2D]" />
                   )}
                   <span className="text-[10px] text-slate-400 ml-auto flex-shrink-0">
                     {comment.time}
                   </span>
                 </div>
-                <div className={`p-2.5 rounded-r-xl rounded-bl-xl text-sm leading-relaxed shadow-sm border
+                <div className={`p-2.5 text-sm leading-relaxed border
                   ${comment.amount 
-                    ? 'bg-emerald-50 border-emerald-100 text-emerald-900' 
-                    : 'bg-slate-50 border-slate-100 text-slate-600'
+                    ? 'bg-[#f8f8f8] border-black text-black' 
+                    : 'bg-white border-slate-200 text-slate-700'
                   }`}>
                   {comment.text}
                 </div>
@@ -148,10 +148,10 @@ export const LiveFeedback: React.FC = () => {
         </div>
 
         {/* Input Area (Fake) */}
-        <div className="p-3 bg-slate-50 border-t border-slate-100">
-          <div className="w-full bg-white border border-slate-200 rounded-full px-4 py-2.5 text-sm text-slate-400 flex items-center justify-between cursor-not-allowed select-none">
-            <span>Complete deals to join chat...</span>
-            <span className="text-xs bg-slate-100 px-2 py-0.5 rounded text-slate-500">Locked</span>
+        <div className="p-3 bg-white border-t border-slate-100">
+          <div className="w-full bg-[#F2F2F2] border border-transparent rounded-sm px-4 py-2.5 text-sm text-slate-400 flex items-center justify-between cursor-not-allowed select-none">
+            <span>Join the conversation...</span>
+            <span className="text-xs bg-black text-white px-2 py-0.5 rounded-sm">Locked</span>
           </div>
         </div>
       </div>
