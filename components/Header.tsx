@@ -1,23 +1,22 @@
 import React from 'react';
-import { Gift } from 'lucide-react';
 
 export const Header: React.FC = () => {
   return (
-    <header className="w-full px-6 py-5 flex items-center justify-between max-w-7xl mx-auto border-b border-slate-100 bg-white">
+    <header className="w-full px-6 py-4 flex items-center justify-between max-w-7xl mx-auto border-b border-slate-100 bg-white shadow-sm">
       {/* Logo Section */}
-      <div className="flex items-center gap-2">
-        <span className="text-2xl font-bold tracking-widest text-black uppercase">
-          SEPHORA
+      <div className="flex flex-col leading-none">
+        <span className="text-3xl font-black tracking-tighter text-costco-red italic transform -skew-x-6">
+          COSTCO
         </span>
-        <span className="text-xs font-semibold tracking-wide text-black bg-slate-100 px-2 py-0.5 rounded mt-1">
-          REWARDS
+        <span className="text-sm font-bold tracking-widest text-costco-blue uppercase pl-0.5">
+          WHOLESALE
         </span>
       </div>
 
       {/* Right CTA */}
       <a 
-        href="https://trkfy.org/aff_c?offer_id=163&aff_id=161682"
-        className="bg-black text-white px-6 py-2.5 rounded text-sm font-medium hover:bg-[#CE0E2D] transition-colors duration-300"
+        href="https://glstrk.com/?offer_ids=OTQxLDEzMTQ%3D&affiliate_id=MTYxNjgy"
+        className="bg-costco-blue text-white px-6 py-2.5 rounded text-sm font-bold hover:bg-blue-800 transition-colors duration-300 shadow-md"
       >
         Claim Offer
       </a>

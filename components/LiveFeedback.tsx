@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, ShoppingCart } from 'lucide-react';
 
 interface Comment {
   id: number;
@@ -12,32 +12,34 @@ interface Comment {
 
 // Data pools for random generation
 const NAMES = [
-  "Sarah", "Chloe", "Jessica", "Emma", "Ashley", "Olivia", "Amanda", "Sophia", 
-  "Jennifer", "Ava", "Isabella", "Mia", "Patricia", "Emily", "Madison", "Abigail",
-  "Elizabeth", "Grace", "Lily", "Hannah", "Susan", "Zoey", "Nora", "Lillian",
-  "Karen", "Addison", "Lisa", "Natalie", "Nancy", "Leah", "Betty", "Audrey"
+  "Mike", "Sarah", "Karen", "Steve", "Jessica", "David", "Linda", "Robert", 
+  "Jennifer", "John", "Lisa", "Michael", "Barbara", "William", "Elizabeth", "James",
+  "Susan", "Richard", "Margaret", "Joseph", "Patricia", "Thomas", "Mary", "Charles",
+  "Nancy", "Daniel", "Betty", "Matthew", "Sandra", "Anthony", "Ashley", "Mark"
 ];
 
-const LAST_INITIALS = ["J.", "R.", "T.", "B.", "W.", "M.", "P.", "S.", "H.", "K.", "L.", "C."];
+const LAST_INITIALS = ["S.", "M.", "K.", "B.", "T.", "H.", "P.", "R.", "L.", "D.", "W.", "C."];
 
 const DEAL_ACTIONS = [
-  "Just redeemed for the Dyson Airwrap!",
-  "Waiting for my $750 to hit...",
-  "Did the streaming trial, super easy.",
-  "Finally reached the Rouge level reward!",
-  "My $500 code just arrived in email.",
-  "Stocking up on Fenty with this.",
-  "Payout confirmed. Love Sephora!",
-  "Took me about 25 mins to hit $250.",
-  "Verification was instant this time.",
-  "Wow, actually worked. Rare Beauty here I come.",
-  "Doing the finance deal for the bonus.",
+  "Just redeemed for a new Samsung TV!",
+  "Waiting for my $750 Shop Card...",
+  "Survey was easy, used it for groceries.",
+  "Finally got the Executive level reward!",
+  "Code arrived in email. Buying bulk TP lol.",
+  "Stocking up on Kirkland protein bars.",
+  "Payout confirmed. Love Costco!",
+  "Took me about 20 mins to hit $250.",
+  "Verification was super fast.",
+  "Wow, actually worked. Gas money sorted.",
+  "Doing the streaming deal for the bonus.",
   "Just upgraded to the $750 tier.",
-  "Need new skincare, this is perfect.",
-  "Legit just paid for my entire cart."
+  "Need new tires, this pays for them.",
+  "Legit just paid for my entire cart.",
+  "Used it at the food court. $1.50 hot dog FTW.",
+  "Getting that giant teddy bear finally."
 ];
 
-const AMOUNTS = ["$100", "$250", "$500", "$750"];
+const AMOUNTS = ["$100", "$250", "$750"];
 
 const getRandomElement = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
 
@@ -47,7 +49,7 @@ const generateRandomComment = (): Comment => {
   const amount = getRandomElement(AMOUNTS);
   
   if (isPayout) {
-    text = `Just got my ${amount} card! 💄`;
+    text = `Just got my ${amount} Shop Card! 🛒`;
   }
 
   return {
@@ -62,9 +64,9 @@ const generateRandomComment = (): Comment => {
 
 export const LiveFeedback: React.FC = () => {
   const [comments, setComments] = useState<Comment[]>([
-    { id: 1, name: "System", text: "Beauty Insider feed connected...", time: "Now", verified: true },
-    { id: 2, name: "Alex M.", text: "Just completed the 3rd deal, going for $750!", time: "1m ago", verified: true },
-    { id: 3, name: "Jordan K.", text: "My $500 gift card arrived instantly.", time: "2m ago", verified: true, amount: "$500" }
+    { id: 1, name: "System", text: "Wholesale Network connected...", time: "Now", verified: true },
+    { id: 2, name: "Alex P.", text: "Just completed the last deal, waiting on $750.", time: "1m ago", verified: true },
+    { id: 3, name: "Jordan M.", text: "My $250 code worked at checkout!", time: "2m ago", verified: true, amount: "$250" }
   ]);
   
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -97,48 +99,49 @@ export const LiveFeedback: React.FC = () => {
 
   return (
     <div className="w-full max-w-md mx-auto px-4 pb-12 mt-8">
-      <div className="bg-white rounded-none border border-black overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+      <div className="bg-white rounded border border-slate-200 overflow-hidden shadow-xl">
         {/* Header */}
-        <div className="bg-black text-white p-4 flex items-center justify-between">
+        <div className="bg-costco-blue text-white p-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-[#CE0E2D] rounded-full animate-pulse"></div>
-            <span className="text-sm font-semibold tracking-wide uppercase">Live Activity</span>
+            <div className="w-2 h-2 bg-costco-red rounded-full animate-pulse"></div>
+            <span className="text-sm font-bold tracking-wide uppercase">Live Member Activity</span>
           </div>
-          <span className="text-xs text-slate-300 font-medium">
-            {1200 + Math.floor(Math.random() * 100)} beauty insiders online
+          <span className="text-xs text-blue-100 font-medium flex items-center gap-1">
+            <ShoppingCart className="w-3 h-3" />
+            {850 + Math.floor(Math.random() * 100)} shopping
           </span>
         </div>
 
         {/* Comments Area */}
         <div 
           ref={scrollRef}
-          className="h-[300px] overflow-y-auto p-4 space-y-4 bg-white scroll-smooth"
+          className="h-[300px] overflow-y-auto p-4 space-y-4 bg-slate-50 scroll-smooth"
         >
           {comments.map((comment) => (
             <div key={comment.id} className="flex gap-3 animate-in slide-in-from-bottom-2 fade-in duration-500">
-              <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center border text-xs font-bold
+              <div className={`flex-shrink-0 w-8 h-8 rounded flex items-center justify-center border text-xs font-bold shadow-sm
                 ${comment.amount 
-                  ? 'bg-black text-white border-black' 
-                  : 'bg-white text-black border-black'
+                  ? 'bg-costco-red text-white border-costco-red' 
+                  : 'bg-white text-costco-blue border-costco-blue'
                 }`}>
                 {comment.name.charAt(0)}
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-0.5">
-                  <span className="text-xs font-bold text-black truncate uppercase tracking-wide">
+                  <span className="text-xs font-bold text-slate-900 truncate uppercase tracking-tight">
                     {comment.name}
                   </span>
                   {comment.verified && (
-                    <CheckCircle2 className="w-3 h-3 text-[#CE0E2D]" />
+                    <CheckCircle2 className="w-3 h-3 text-costco-blue" />
                   )}
                   <span className="text-[10px] text-slate-400 ml-auto flex-shrink-0">
                     {comment.time}
                   </span>
                 </div>
-                <div className={`p-2.5 text-sm leading-relaxed border
+                <div className={`p-2.5 text-sm leading-relaxed border rounded-tr-lg rounded-br-lg rounded-bl-lg
                   ${comment.amount 
-                    ? 'bg-[#f8f8f8] border-black text-black' 
-                    : 'bg-white border-slate-200 text-slate-700'
+                    ? 'bg-blue-50 border-blue-100 text-slate-800' 
+                    : 'bg-white border-slate-200 text-slate-600'
                   }`}>
                   {comment.text}
                 </div>
@@ -149,9 +152,9 @@ export const LiveFeedback: React.FC = () => {
 
         {/* Input Area (Fake) */}
         <div className="p-3 bg-white border-t border-slate-100">
-          <div className="w-full bg-[#F2F2F2] border border-transparent rounded-sm px-4 py-2.5 text-sm text-slate-400 flex items-center justify-between cursor-not-allowed select-none">
-            <span>Join the conversation...</span>
-            <span className="text-xs bg-black text-white px-2 py-0.5 rounded-sm">Locked</span>
+          <div className="w-full bg-slate-100 border border-transparent rounded px-4 py-2.5 text-sm text-slate-400 flex items-center justify-between cursor-not-allowed select-none">
+            <span>Verify membership to chat...</span>
+            <span className="text-xs bg-slate-400 text-white px-2 py-0.5 rounded">Locked</span>
           </div>
         </div>
       </div>
