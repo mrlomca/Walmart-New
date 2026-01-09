@@ -15,7 +15,7 @@ export const Header: React.FC = () => {
 
       {/* Right CTA */}
       <a 
-        href="https://glstrk.com/?offer_ids=OTQxLDEzMTQ%3D&affiliate_id=MTYxNjgy"
+        href="https://trkio.org/aff_c?offer_id=1314&aff_id=161682"
         className="bg-costco-blue text-white px-6 py-2.5 rounded text-sm font-bold hover:bg-blue-800 transition-colors duration-300 shadow-md"
       >
         Claim Offer

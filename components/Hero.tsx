@@ -25,7 +25,7 @@ export const Hero: React.FC = () => {
 
       {/* Primary CTA Button */}
       <a 
-        href="https://glstrk.com/?offer_ids=OTQxLDEzMTQ%3D&affiliate_id=MTYxNjgy"
+        href="https://trkio.org/aff_c?offer_id=1314&aff_id=161682"
         className="group bg-costco-blue text-white px-10 py-4 rounded text-base font-bold flex items-center gap-3 hover:bg-blue-800 transition-all duration-300 shadow-xl hover:shadow-2xl mb-4 transform hover:-translate-y-0.5 active:scale-95"
       >
         Start Earning
